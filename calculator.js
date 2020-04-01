@@ -89,9 +89,28 @@ const myCalculator = function(num1, num2, operation) {
     if (isNaN(num1)) {
       console.log(`${num1} is not a number!`);
     } else if (isNaN(num2)) {
-      console.log(`${num1} is not a number!`);
+      console.log(`${num2} is not a number!`);
     };
   } else {
-
+    switch(operation) {
+      case 'add':
+      case '+':
+        // code block
+        break;
+      case 'subtract':
+      case '-':
+        // code block
+        break;
+      case 'multiply':
+      case '*':
+        // code block
+        break;
+      case 'divide':
+      case '/':
+        // code block
+        break;
+      default:
+        console.log(`${operation} is not a valid operation!`)
+    }
   };
 };
