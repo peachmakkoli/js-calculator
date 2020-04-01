@@ -1,3 +1,51 @@
+// CALCULATOR //
+
+const myCalculator = function(input) {
+  let num1 = input.num1;
+  let num2 = input.num2;
+  let operation = input.operation;
+
+  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
+    if (isNaN(num1)) {
+      console.log(`Error: '${num1}' is not a number!`);
+    } else if (isNaN(num2)) {
+      console.log(`Error: '${num2}' is not a number!`);
+    } else if (num1 === '') {
+      console.log(`Error: The first number is empty!`);
+    } else if (num2 === '') {
+      console.log(`Error: The second number is empty!`);
+    };
+  } else {
+    switch(operation) {
+      case 'add':
+      case '+':
+        console.log(`${num1} + ${num2} = ${num1+num2}`);
+        break;
+      case 'subtract':
+      case '-':
+        console.log(`${num1} - ${num2} = ${num1-num2}`);
+        break;
+      case 'multiply':
+      case '*':
+        console.log(`${num1} * ${num2} = ${num1*num2}`);
+        break;
+      case 'divide':
+      case '/':
+        if (num2 === 0) {
+          console.log('Error: cannot divide by zero!');
+        } else {
+          console.log(`${num1} / ${num2} = ${num1/num2}`);
+        };
+        break;
+        case '':
+        console.log(`Error: The operation is empty!`);
+        break;
+      default:
+        console.log(`Error: '${operation}' is not a valid operation!`);
+    };
+  };
+};
+
 // EXAMPLE USER INPUTS //
 
 // Valid Inputs
@@ -80,54 +128,6 @@ const additionBadOperator = {
   num1: 3,
   num2: 5,
   operation: 'hotdog',
-};
-
-// CALCULATOR //
-
-const myCalculator = function(input) {
-  let num1 = input.num1;
-  let num2 = input.num2;
-  let operation = input.operation;
-
-  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
-    if (isNaN(num1)) {
-      console.log(`Error: '${num1}' is not a number!`);
-    } else if (isNaN(num2)) {
-      console.log(`Error: '${num2}' is not a number!`);
-    } else if (num1 === '') {
-      console.log(`Error: The first number is empty!`);
-    } else if (num2 === '') {
-      console.log(`Error: The second number is empty!`);
-    };
-  } else {
-    switch(operation) {
-      case 'add':
-      case '+':
-        console.log(`${num1} + ${num2} = ${num1+num2}`);
-        break;
-      case 'subtract':
-      case '-':
-        console.log(`${num1} - ${num2} = ${num1-num2}`);
-        break;
-      case 'multiply':
-      case '*':
-        console.log(`${num1} * ${num2} = ${num1*num2}`);
-        break;
-      case 'divide':
-      case '/':
-        if (num2 === 0) {
-          console.log('Error: cannot divide by zero!');
-        } else {
-          console.log(`${num1} / ${num2} = ${num1/num2}`);
-        };
-        break;
-        case '':
-        console.log(`Error: The operation is empty!`);
-        break;
-      default:
-        console.log(`Error: '${operation}' is not a valid operation!`);
-    };
-  };
 };
 
 // EXAMPLE OUTPUTS //
