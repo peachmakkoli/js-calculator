@@ -84,7 +84,11 @@ const additionBadOperator = {
 
 // CALCULATOR //
 
-const myCalculator = function(num1, num2, operation) {
+const myCalculator = function(input) {
+  let num1 = input.num1
+  let num2 = input.num2
+  let operation = input.operation
+
   if (isNaN(num1) || isNaN(num2)) {
     if (isNaN(num1)) {
       console.log(`${num1} is not a number!`);
