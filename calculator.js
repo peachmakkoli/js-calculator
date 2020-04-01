@@ -1,4 +1,23 @@
+const prompt = require('prompt');
+
 // CALCULATOR //
+
+// Prompt for user input
+
+const calculateUserInput = function(error, promptInput) {
+  myCalculator(promptInput);
+
+  // Questions to ask and answer:
+  // What is promptInput? A variable that got passed in by the prompt.
+  // What data type? What does it hold? What does it represent? It holds an object with three key-value pairs, the values of which are all strings, representing the user input.
+  // How do we read values from it? What syntax? We can use either bracket notation or dot notation to read values from it. For example: `promptInput['num1']` or `promptInput.operation`.
+  // How can we use it? We can pass it into the `myCalculator` function and read its values. 
+  // Can we call our existing functions now, inside of this function? Yes! This is really exciting!!
+}  
+
+prompt.start();
+
+prompt.get(['num1','num2','operation'], calculateUserInput);
 
 // Main function
 
