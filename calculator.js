@@ -2,10 +2,10 @@
 
 // Main function
 
-const myCalculator = function(userInput) {
-  const num1 = userInput.num1;
-  const num2 = userInput.num2;
-  const operation = userInput.operation;
+const myCalculator = function(userInputObj) {
+  const num1 = userInputObj.num1;
+  const num2 = userInputObj.num2;
+  const operation = userInputObj.operation;
 
   if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
     handleBadNumbers(num1, num2);
