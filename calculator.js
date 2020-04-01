@@ -1,5 +1,7 @@
 // CALCULATOR //
 
+// Main function
+
 const myCalculator = function(userInput) {
   const num1 = userInput.num1;
   const num2 = userInput.num2;
@@ -148,9 +150,9 @@ const badInputs = [divideByZero, additionNil, additionWords, additionNilOperator
 
 const exampleOutputs = function(arr) {
   for (let i in arr) {
-    console.log(myCalculator(arr[i]))
+    console.log(myCalculator(arr[i]));
   };
 };
 
-console.log(exampleOutputs(validInputs));
-console.log(exampleOutputs(badInputs));
+console.log(exampleOutputs(validInputs)); // tests all example user inputs that are valid
+console.log(exampleOutputs(badInputs)); // tests all example user inputs that are invalid
