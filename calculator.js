@@ -1,9 +1,5 @@
 const prompt = require('prompt');
 
-// CALCULATOR //
-
-// Main function
-
 const myCalculator = function(userInput) {
   const num1 = Number(userInput.num1); // converts string to number
   const num2 = Number(userInput.num2);
@@ -45,8 +41,6 @@ const myCalculator = function(userInput) {
       console.log(`Error: '${operation}' is not a valid operation!`);
   };
 };
-
-// Helper functions
 
 const handleBadNumbers = function(num1, num2) {
   if (isNaN(num1)) {
