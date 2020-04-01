@@ -89,11 +89,15 @@ const myCalculator = function(input) {
   let num2 = input.num2;
   let operation = input.operation;
 
-  if (isNaN(num1) || isNaN(num2)) {
+  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
     if (isNaN(num1)) {
-      console.log(`Error: ${num1} is not a number!`);
+      console.log(`Error: '${num1}' is not a number!`);
     } else if (isNaN(num2)) {
-      console.log(`Error: ${num2} is not a number!`);
+      console.log(`Error: '${num2}' is not a number!`);
+    } else if (num1 === '') {
+      console.log(`Error: The first number is empty!`);
+    } else if (num2 === '') {
+      console.log(`Error: The second number is empty!`);
     };
   } else {
     switch(operation) {
@@ -117,8 +121,11 @@ const myCalculator = function(input) {
           console.log(`${num1} / ${num2} = ${num1/num2}`);
         };
         break;
+        case '':
+        console.log(`Error: The operation is empty!`);
+        break;
       default:
-        console.log(`Error: ${operation} is not a valid operation!`);
+        console.log(`Error: '${operation}' is not a valid operation!`);
     };
   };
 };
