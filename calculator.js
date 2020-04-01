@@ -1,9 +1,9 @@
 // CALCULATOR //
 
-const myCalculator = function(input) {
-  let num1 = input.num1;
-  let num2 = input.num2;
-  let operation = input.operation;
+const myCalculator = function(userInput) {
+  const num1 = userInput.num1;
+  const num2 = userInput.num2;
+  const operation = userInput.operation;
 
   if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
     if (isNaN(num1)) {
@@ -16,33 +16,39 @@ const myCalculator = function(input) {
       console.log(`Error: The second number is empty!`);
     };
   } else {
-    switch(operation) {
-      case 'add':
-      case '+':
-        console.log(`${num1} + ${num2} = ${num1+num2}`);
-        break;
-      case 'subtract':
-      case '-':
-        console.log(`${num1} - ${num2} = ${num1-num2}`);
-        break;
-      case 'multiply':
-      case '*':
-        console.log(`${num1} * ${num2} = ${num1*num2}`);
-        break;
-      case 'divide':
-      case '/':
-        if (num2 === 0) {
-          console.log('Error: cannot divide by zero!');
-        } else {
-          console.log(`${num1} / ${num2} = ${num1/num2}`);
-        };
-        break;
-        case '':
-        console.log(`Error: The operation is empty!`);
-        break;
-      default:
-        console.log(`Error: '${operation}' is not a valid operation!`);
-    };
+    doOperation(num1, num2, operation);
+  };
+};
+
+// Helper functions
+
+const doOperation = function(num1, num2, operation) {
+  switch(operation) {
+    case 'add':
+    case '+':
+      console.log(`${num1} + ${num2} = ${num1+num2}`);
+      break;
+    case 'subtract':
+    case '-':
+      console.log(`${num1} - ${num2} = ${num1-num2}`);
+      break;
+    case 'multiply':
+    case '*':
+      console.log(`${num1} * ${num2} = ${num1*num2}`);
+      break;
+    case 'divide':
+    case '/':
+      if (num2 === 0) {
+        console.log('Error: cannot divide by zero!');
+      } else {
+        console.log(`${num1} / ${num2} = ${num1/num2}`);
+      };
+      break;
+      case '':
+      console.log(`Error: The operation is empty!`);
+      break;
+    default:
+      console.log(`Error: '${operation}' is not a valid operation!`);
   };
 };
 
