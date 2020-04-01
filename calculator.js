@@ -30,6 +30,14 @@ const myCalculator = function(userInput) {
         console.log(`${num1} / ${num2} = ${num1/num2}`);
       };
       break;
+    case 'modulo':
+    case '%':
+      if (num2 === 0) {
+        console.log('Error: cannot divide by zero!');
+      } else {
+        console.log(`${num1} % ${num2} = ${num1%num2}`);
+      };
+      break;
       case '':
       console.log(`Error: the operation is empty!`);
       break;
