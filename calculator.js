@@ -122,3 +122,11 @@ const myCalculator = function(input) {
     };
   };
 };
+
+// EXAMPLE OUTPUTS //
+
+const validInputs = [exampleAdditionInput1, exampleAdditionInput2, exampleSubtractionInput1, exampleSubtractionInput2, exampleMultiplicationInput1, exampleMultiplicationInput2, exampleDivisionInput1, exampleDivisionInput2];
+
+for (let i in validInputs) {
+  console.log(myCalculator(validInputs[i]))
+};
