@@ -2,53 +2,14 @@ const prompt = require('prompt');
 
 // CALCULATOR //
 
-// Prompt for user input
-
-const calculateUserInput = function(error, promptInput) {
-  myCalculator(promptInput);
-
-  // Questions to ask and answer:
-  // What is promptInput? A variable that got passed in by the prompt.
-  // What data type? What does it hold? What does it represent? It holds an object with three key-value pairs, the values of which are all strings, representing the user input.
-  // How do we read values from it? What syntax? We can use either bracket notation or dot notation to read values from it. For example: `promptInput['num1']` or `promptInput.operation`.
-  // How can we use it? We can pass it into the `myCalculator` function and read its values. 
-  // Can we call our existing functions now, inside of this function? Yes! This is really exciting!!
-}  
-
-prompt.start();
-
-prompt.get(['num1','num2','operation'], calculateUserInput);
-
 // Main function
 
-const myCalculator = function(userInputObj) {
-  const num1 = userInputObj.num1;
-  const num2 = userInputObj.num2;
-  const operation = userInputObj.operation;
+const myCalculator = function(userInput) {
+  const num1 = Number(userInput.num1); // converts string to number
+  const num2 = Number(userInput.num2);
+  const operation = userInput.operation.toLowerCase(); // converts operation to lowercase
 
-  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
-    handleBadNumbers(num1, num2);
-  } else {
-    doOperation(num1, num2, operation);
-  };
-};
-
-// Helper functions
-
-const handleBadNumbers = function(num1, num2) {
-  if (isNaN(num1)) {
-    console.log(`Error: '${num1}' is not a number!`);
-  } else if (isNaN(num2)) {
-    console.log(`Error: '${num2}' is not a number!`);
-  } else if (num1 === '') {
-    console.log(`Error: The first number is empty!`);
-  } else if (num2 === '') {
-    console.log(`Error: The second number is empty!`);
-  };
-};
-
-const doOperation = function(num1, num2, operation) {
-  switch(operation) {
+  switch(operation) { 
     case 'add':
     case '+':
       console.log(`${num1} + ${num2} = ${num1+num2}`);
@@ -70,108 +31,45 @@ const doOperation = function(num1, num2, operation) {
       };
       break;
       case '':
-      console.log(`Error: The operation is empty!`);
+      console.log(`Error: the operation is empty!`);
       break;
     default:
       console.log(`Error: '${operation}' is not a valid operation!`);
   };
 };
 
-// EXAMPLE USER INPUTS //
+// Helper functions
 
-// Valid Inputs
-
-const exampleAdditionInput1 = {
-  num1: 3,
-  num2: 5,
-  operation: 'add',
-};
-
-const exampleAdditionInput2 = {
-  num1: 100,
-  num2: 50,
-  operation: '+',
-};
-
-const exampleSubtractionInput1 = {
-  num1: 3,
-  num2: 5,
-  operation: 'subtract',
-};
-
-const exampleSubtractionInput2 = {
-  num1: 100,
-  num2: 50,
-  operation: '-',
-};
-
-const exampleMultiplicationInput1 = {
-  num1: 3,
-  num2: 5,
-  operation: 'multiply',
-};
-
-const exampleMultiplicationInput2 = {
-  num1: 100,
-  num2: 50,
-  operation: '*',
-};
-
-const exampleDivisionInput1 = {
-  num1: 3,
-  num2: 5,
-  operation: 'divide',
-};
-
-const exampleDivisionInput2 = {
-  num1: 100,
-  num2: 50,
-  operation: '/',
-};
-
-// Invalid Inputs
-
-const divideByZero = {
-  num1: 1,
-  num2: 0,
-  operation: 'divide',
-};
-
-const additionNil = {
-  num1: '',
-  num2: '',
-  operation: 'add',
-};
-
-const additionWords = {
-  num1: 'hotdog',
-  num2: 'elephant',
-  operation: 'add',
-};
-
-const additionNilOperator = {
-  num1: 3,
-  num2: 5,
-  operation: '',
-};
-
-const additionBadOperator = {
-  num1: 3,
-  num2: 5,
-  operation: 'hotdog',
-};
-
-// EXAMPLE OUTPUTS //
-
-const validInputs = [exampleAdditionInput1, exampleAdditionInput2, exampleSubtractionInput1, exampleSubtractionInput2, exampleMultiplicationInput1, exampleMultiplicationInput2, exampleDivisionInput1, exampleDivisionInput2];
-
-const badInputs = [divideByZero, additionNil, additionWords, additionNilOperator, additionBadOperator];
-
-const exampleOutputs = function(arr) {
-  for (const i in arr) {
-    console.log(myCalculator(arr[i]));
+const handleBadNumbers = function(num1, num2) {
+  if (isNaN(num1)) {
+    console.log(`Error: '${num1}' is not a number!`);
+  } else if (isNaN(num2)) {
+    console.log(`Error: '${num2}' is not a number!`);
+  } else if (num1 === '') {
+    console.log(`Error: the first number is empty!`);
+  } else if (num2 === '') {
+    console.log(`Error: the second number is empty!`);
   };
 };
 
-console.log(exampleOutputs(validInputs)); // tests all example user inputs that are valid
-console.log(exampleOutputs(badInputs)); // tests all example user inputs that are invalid
+const calculateUserInput = function(error, promptInput) {
+  const num1 = promptInput.num1;
+  const num2 = promptInput.num2;
+
+  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
+    handleBadNumbers(num1, num2);
+  } else {
+    myCalculator(promptInput);
+  };
+
+  // Questions to ask and answer:
+  // What is promptInput? A variable that got passed in by the prompt.
+  // What data type? What does it hold? What does it represent? It holds an object with three key-value pairs, the values of which are all strings, representing the user input.
+  // How do we read values from it? What syntax? We can use either bracket notation or dot notation to read values from it. For example: `promptInput['num1']` or `promptInput.operation`.
+  // How can we use it? We can pass it into the `myCalculator` function and read its values. 
+  // Can we call our existing functions now, inside of this function? Yes! This is really exciting!!
+}  
+
+prompt.start();
+
+prompt.get(['num1','num2','operation'], calculateUserInput);
