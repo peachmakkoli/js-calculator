@@ -149,7 +149,7 @@ const validInputs = [exampleAdditionInput1, exampleAdditionInput2, exampleSubtra
 const badInputs = [divideByZero, additionNil, additionWords, additionNilOperator, additionBadOperator];
 
 const exampleOutputs = function(arr) {
-  for (let i in arr) {
+  for (const i in arr) {
     console.log(myCalculator(arr[i]));
   };
 };
