@@ -127,6 +127,13 @@ const myCalculator = function(input) {
 
 const validInputs = [exampleAdditionInput1, exampleAdditionInput2, exampleSubtractionInput1, exampleSubtractionInput2, exampleMultiplicationInput1, exampleMultiplicationInput2, exampleDivisionInput1, exampleDivisionInput2];
 
-for (let i in validInputs) {
-  console.log(myCalculator(validInputs[i]))
+const badInputs = [divideByZero, additionNil, additionWords, additionNilOperator, additionBadOperator];
+
+const exampleOutputs = function(arr) {
+  for (let i in arr) {
+    console.log(myCalculator(arr[i]))
+  };
 };
+
+console.log(exampleOutputs(validInputs));
+console.log(exampleOutputs(badInputs));
