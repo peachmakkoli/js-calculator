@@ -34,7 +34,7 @@ const myCalculator = function(userInput) {
         console.log(`${num1} % ${num2} = ${num1%num2}`);
       };
       break;
-      case '':
+    case '':
       console.log(`Error: the operation is empty!`);
       break;
     default:
