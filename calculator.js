@@ -85,36 +85,40 @@ const additionBadOperator = {
 // CALCULATOR //
 
 const myCalculator = function(input) {
-  let num1 = input.num1
-  let num2 = input.num2
-  let operation = input.operation
+  let num1 = input.num1;
+  let num2 = input.num2;
+  let operation = input.operation;
 
   if (isNaN(num1) || isNaN(num2)) {
     if (isNaN(num1)) {
-      console.log(`${num1} is not a number!`);
+      console.log(`Error: ${num1} is not a number!`);
     } else if (isNaN(num2)) {
-      console.log(`${num2} is not a number!`);
+      console.log(`Error: ${num2} is not a number!`);
     };
   } else {
     switch(operation) {
       case 'add':
       case '+':
-        // code block
+        console.log(`${num1} + ${num2} = ${num1+num2}`);
         break;
       case 'subtract':
       case '-':
-        // code block
+        console.log(`${num1} - ${num2} = ${num1-num2}`);
         break;
       case 'multiply':
       case '*':
-        // code block
+        console.log(`${num1} * ${num2} = ${num1*num2}`);
         break;
       case 'divide':
       case '/':
-        // code block
+        if (num2 === 0) {
+          console.log('Error: cannot divide by zero!');
+        } else {
+          console.log(`${num1} / ${num2} = ${num1/num2}`);
+        };
         break;
       default:
-        console.log(`${operation} is not a valid operation!`)
-    }
+        console.log(`Error: ${operation} is not a valid operation!`);
+    };
   };
 };
