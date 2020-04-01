@@ -8,49 +8,43 @@ const myCalculator = function(userInput) {
   switch(operation) { 
     case 'add':
     case '+':
-      console.log(`${num1} + ${num2} = ${num1+num2}`);
-      break;
+      return `${num1} + ${num2} = ${num1+num2}`;
     case 'subtract':
     case '-':
-      console.log(`${num1} - ${num2} = ${num1-num2}`);
-      break;
+      return `${num1} - ${num2} = ${num1-num2}`;
     case 'multiply':
     case '*':
-      console.log(`${num1} * ${num2} = ${num1*num2}`);
-      break;
+      return `${num1} * ${num2} = ${num1*num2}`;
     case 'divide':
     case '/':
       if (num2 === 0) {
-        console.log('Error: cannot divide by zero!');
+        return 'Error: cannot divide by zero!';
       } else {
-        console.log(`${num1} / ${num2} = ${num1/num2}`);
+        return `${num1} / ${num2} = ${num1/num2}`;
       };
-      break;
     case 'modulo':
     case '%':
       if (num2 === 0) {
-        console.log('Error: cannot divide by zero!');
+        return 'Error: cannot divide by zero!';
       } else {
-        console.log(`${num1} % ${num2} = ${num1%num2}`);
+        return `${num1} % ${num2} = ${num1%num2}`;
       };
-      break;
     case '':
-      console.log(`Error: the operation is empty!`);
-      break;
+      return `Error: the operation is empty!`;
     default:
-      console.log(`Error: '${operation}' is not a valid operation!`);
+      return `Error: '${operation}' is not a valid operation!`;
   };
 };
 
 const handleBadNumbers = function(num1, num2) {
   if (isNaN(num1)) {
-    console.log(`Error: '${num1}' is not a number!`);
+    return `Error: '${num1}' is not a number!`;
   } else if (isNaN(num2)) {
-    console.log(`Error: '${num2}' is not a number!`);
+    return `Error: '${num2}' is not a number!`;
   } else if (num1 === '') {
-    console.log(`Error: the first number is empty!`);
+    return `Error: the first number is empty!`;
   } else if (num2 === '') {
-    console.log(`Error: the second number is empty!`);
+    return `Error: the second number is empty!`;
   };
 };
 
@@ -61,7 +55,7 @@ const calculateUserInput = function(error, promptInput) {
   if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
     handleBadNumbers(num1, num2);
   } else {
-    myCalculator(promptInput);
+    console.log(myCalculator(promptInput));
   };
 
   // Questions to ask and answer:
