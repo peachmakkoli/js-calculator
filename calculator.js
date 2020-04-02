@@ -62,7 +62,7 @@ const calculateUserInput = function(error, promptInput) {
   const num1 = promptInput.num1;
   const num2 = promptInput.num2;
 
-  (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') ? handleBadNumbers(num1, num2) : console.log(myCalculator(promptInput));
+  (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') ? console.log(handleBadNumbers(num1, num2)) : console.log(myCalculator(promptInput));
 
   // Questions to ask and answer:
   // What is promptInput? A variable that got passed in by the prompt.
