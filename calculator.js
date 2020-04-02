@@ -8,32 +8,42 @@ const myCalculator = function(userInput) {
   switch(operation) { 
     case 'add':
     case '+':
-      return `${num1} + ${num2} = ${num1+num2}`;
+      return doMath.add(num1, num2);
     case 'subtract':
     case '-':
-      return `${num1} - ${num2} = ${num1-num2}`;
+      return doMath.subtract(num1, num2);
     case 'multiply':
     case '*':
-      return `${num1} * ${num2} = ${num1*num2}`;
+      return doMath.multiply(num1, num2);
     case 'divide':
     case '/':
-      if (num2 === 0) {
-        return 'Error: cannot divide by zero!';
-      } else {
-        return `${num1} / ${num2} = ${num1/num2}`;
-      };
+      return doMath.divide(num1, num2);
     case 'modulo':
     case '%':
-      if (num2 === 0) {
-        return 'Error: cannot divide by zero!';
-      } else {
-        return `${num1} % ${num2} = ${num1%num2}`;
-      };
+      return doMath.modulo(num1, num2);
     case '':
       return `Error: the operation is empty!`;
     default:
       return `Error: '${operation}' is not a valid operation!`;
   };
+};
+
+const doMath = {
+  add(num1, num2) {
+    return `${num1} + ${num2} = ${num1+num2}`;
+  },
+  subtract(num1, num2) {
+    return `${num1} - ${num2} = ${num1-num2}`;
+  },
+  multiply(num1, num2) {
+    return `${num1} * ${num2} = ${num1*num2}`;
+  },
+  divide(num1, num2) {
+    return (num2 === 0 ? 'Error: cannot divide by zero!' : `${num1} / ${num2} = ${num1/num2}`);
+  },
+  modulo(num1, num2) {
+    return (num2 === 0 ? 'Error: cannot divide by zero!' : `${num1} % ${num2} = ${num1%num2}`);
+  },
 };
 
 const handleBadNumbers = function(num1, num2) {
@@ -52,11 +62,7 @@ const calculateUserInput = function(error, promptInput) {
   const num1 = promptInput.num1;
   const num2 = promptInput.num2;
 
-  if (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') {
-    handleBadNumbers(num1, num2);
-  } else {
-    console.log(myCalculator(promptInput));
-  };
+  (isNaN(num1) || isNaN(num2) || num1 === '' || num2 === '') ? handleBadNumbers(num1, num2) : console.log(myCalculator(promptInput));
 
   // Questions to ask and answer:
   // What is promptInput? A variable that got passed in by the prompt.
